@@ -1,31 +1,38 @@
-import java.io.*;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 import java.util.ArrayList;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 public class Duke {
     private static Task[] task = new Task[100];
     private static Integer taskNo = 0;
     private static ArrayList<Task> ArrayTask = new ArrayList<Task>();
     private static Integer listNo = 0;
+    private Ui ui;
+
+    public Duke(String filename){
+        ui = new Ui();
+/*        storage = new Storage(filePath);
+        try {
+            tasks = new TaskList(storage.load());
+        } catch (DukeException e) {
+            ui.showLoadingError();
+            tasks = new TaskList();
+        } */
+    }
 
     public static void addTask(Task t) {
-        task[taskNo] = t;
-        taskNo++;
+        //task[taskNo] = t;
+        //taskNo++;
         ArrayTask.add(t);
-        listNo++;
+        //listNo++;
+    }
+
+    public void run(){
+        ui.welcomeMessage();
     }
 
     public static void main(String[] args) {
+
+        new Duke("D:\\git\\output.txt").run();
 
         Message.welcomeMessage(); // Duke welcome message
 
